@@ -9,6 +9,8 @@
 
       playSound(buttonInnerHTML);
 
+      buttonAnimation(buttonInnerHTML);
+
     });
 
 }
@@ -20,7 +22,9 @@ document.addEventListener("keydown", function(event) {
 
   playSound(event.key);
 
-})
+  buttonAnimation(event.key);
+
+});
 
 
 function playSound(key) {
@@ -59,5 +63,17 @@ function playSound(key) {
       console.log(buttonInnerHTML);
 
   }
+
+}
+
+function buttonAnimation(currentKey) {
+
+  let activeButton = document.querySelector("." + currentKey);
+
+  activeButton.classList.toggle("pressed");
+
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 150);
 
 }
